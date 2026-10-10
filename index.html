@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Magic Box</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background: #eaf6ff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #box {
+            width: 150px;
+            height: 120px;
+            background: orange;
+            color: white;
+            margin: 20px auto;
+            padding: 30px 5px;
+            border-radius: 15px;
+            font-size: 20px;
+        }
+
+        .special {
+            background: purple !important;
+            border-radius: 50% !important;
+        }
+
+        button {
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>My Magic Box</h1>
+
+        <div id="box">Hello hero coder!</div>
+
+        <button id="big" class="btn btn-success">
+            Bigger
+        </button>
+
+        <button id="small" class="btn btn-warning">
+            Smaller
+        </button>
+
+        <button id="color" class="btn btn-primary">
+            Change Color
+        </button>
+
+        <button id="style" class="btn btn-info">
+            Change Style
+        </button>
+
+        <hr>
+
+        <input type="text" id="name"
+        class="form-control"
+        placeholder="Enter your name">
+
+        <br>
+
+        <button id="changeText" class="btn btn-success">
+            Change Text
+        </button>
+
+        <button id="add" class="btn btn-primary">
+            Add Item
+        </button>
+
+        <button id="delete" class="btn btn-danger">
+            Delete Items
+        </button>
+
+        <ul id="list">
+            <li>Star</li>
+        </ul>
+
+        <p id="message">Let's play!</p>
+
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+
+        $(document).ready(function() {
+
+            // Animate
+            $("#big").click(function() {
+                $("#box").animate({
+                    width: "+=20",
+                    height: "+=20"
+                }, 500);
+            });
+
+            $("#small").click(function() {
+                $("#box").animate({
+                    width: "-=20",
+                    height: "-=20"
+                }, 500);
+            });
+
+            // CSS
+            $("#color").click(function() {
+                $("#box").css("background", "blue");
+            });
+
+            // addClass and removeClass
+            $("#style").click(function() {
+                $("#box").toggleClass("special");
+            });
+
+            // val and text
+            $("#changeText").click(function() {
+                var name = $("#name").val();
+
+                $("#box").text(name);
+            });
+
+            // append
+            $("#add").click(function() {
+                $("#list").append("<li>New Star</li>");
+            });
+
+            // empty
+            $("#delete").click(function() {
+                $("#list").empty();
+            });
+
+            // Event and text
+            $("#box").click(function() {
+                $("#message").text("You clicked the box!");
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
